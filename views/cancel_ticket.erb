@@ -1,0 +1,29 @@
+<h3><p class="p-3 mb-2 bg-danger text-white">DANGER: The following Ticket will be cancelled:</p></h3>
+<ul>
+  <li>ID: <%= @ticket_to_cancel.id %></li>
+  <li>Category: <%= @ticket_to_cancel.category %></li>
+  <li>Type of request: <%= @ticket_to_cancel.type_of_ticket %></li>
+  <li>Date: <%= @ticket_to_cancel.open_date %></li>
+  <li><%= @ticket_to_cancel.commune %></li>
+  <li>Neighbordhood: <%= @ticket_to_cancel.neighbordhood %></li>
+  <li>Street: <%= @ticket_to_cancel.street%></li>
+  <li>Number: <%= @ticket_to_cancel.number %></li>
+  <li>Source Channel: <%= @ticket_to_cancel.source_channel %></li>
+  <li>Gender: <%= @ticket_to_cancel.gender %></li>
+ 
+</ul>
+<div class="form-row">
+  <div class="form-group">
+    <a class="btn btn-danger btn-sm <%= "disabled" unless @ticket_to_cancel.status == 'Abierto' %>" href="/cancel_confirmation/<%= @ticket_to_cancel.id %>" role="button">Please be sure and Confirm</a>
+    <a class="btn btn-warning btn-sm" href="/all_tickets" role="button">Cancel</a>
+  </div>
+</div>
+<ul>
+  <li>Status: <%= @ticket_to_cancel.status %></li>
+  <li>Close: <%= @ticket_to_cancel.close_date %></li>
+</ul>
+<div class="form-row">
+  <div class="form-group">
+    <a class="btn btn-primary btn-sm" href="/all_tickets" role="button">Back to Tickets</a>
+  </div>
+</div>

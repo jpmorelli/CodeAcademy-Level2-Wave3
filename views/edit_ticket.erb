@@ -1,0 +1,77 @@
+<div class="card">
+  <h4 class="card-header">Edit Ticket</h4>
+  <div class="card-body">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <div class="alert alert-danger" role="alert">
+            <%= error%>
+          </div>
+        <% end %>
+      <% end %>
+      <form method='post' action='/edit_ticket/<%= @current_ticket.id %>'>
+        <input type='hidden' name='_method' value='PUT'/>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label>Category</label>
+            <select class="form-control" name="category">
+              <% @categories.each do |option| %>
+                <option  <%= "selected" if option == @current_ticket.category %> ><%=option%></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+          <label>Open date</label>
+            <input type="text" name="open_date" value="<%= @current_ticket.open_date %>" class="form-control" readonly>
+          </div>
+         </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Type of ticket</label>
+            <select class="form-control" name="type_of_ticket">
+              <% @type_of_ticket.each do |option| %>
+                <option  <%= "selected" if option == @current_ticket.type_of_ticket %> ><%=option%></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Source Channel</label>
+            <select class="form-control" name="source_channel">
+              <% @source_channel.each do |option| %>
+                <option  <%= "selected" if option == @current_ticket.source_channel %> ><%=option%></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label>Street</label>
+            <input type="text" name="street" value="<%= @current_ticket.street %>" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Number</label>
+            <input type="number" name="number" value="<%= @current_ticket.number %>" class="form-control">
+          </div>
+        </div>     
+        <div class="form-group">
+          <label>Neighbordhood</label>
+          <input type="text" name="neighbordhood" value="<%= @current_ticket.neighbordhood %>" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Commune</label>
+          <select class="form-control" name="commune">
+            <% @commune.each do |option| %>
+              <option  <%= "selected" if option == @current_ticket.commune %> ><%=option%></option>
+            <% end %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="radio-inline"><input type="radio" name="gender" value="femenino" <%='checked' if @current_ticket.gender == 'femenino' %>> Female </label>
+          <label class="radio-inline"><input type="radio" name="gender" value="masculino" <%= 'checked' if @current_ticket.gender == 'masculino' %>> Male </label>
+          <label class="radio-inline"><input type="radio" name="gender" value="otro" <%= 'checked' if @current_ticket.gender == 'otro' %>> Other </label>
+        </div>
+        <button type='submit' class='btn btn-primary'>Save</button>
+        <a class="btn btn-secondary" href="/" role="button">Cancel</a>
+      </form>
+  </div>
+</div>

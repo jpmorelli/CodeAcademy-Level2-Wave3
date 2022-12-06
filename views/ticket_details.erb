@@ -1,0 +1,33 @@
+<div class="card">
+  <h4 class="card-header">ID<%= @ticket.id %> - Ticket details</h4>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col-6">
+        <ul>
+          <% if @success == true %>
+            <div class="p-3 mb-2 bg-success text-white">Ticket modified sucessfully !</div>
+            <% end %>  
+          <li><b>Category: </b><%= @ticket.category %></li>
+          <li><b>Type of request: </b><%= @ticket.type_of_ticket %></li>
+          <li><b>Date: </b><%= @ticket.open_date %></li>
+          <li><%= @ticket.commune %></li>
+          <li><b>Neighbordhood: </b><%= @ticket.neighbordhood %></li>
+          <li><b>Street: </b><%= @ticket.street%></li>
+          <li><b>Number: </b><%= @ticket.number %></li>
+          <li><b>Source Channel: </b><%= @ticket.source_channel %></li>
+          <li><b>Gender: </b><%= @ticket.gender %></li>
+          <li><b>Status: </b><%= @ticket.status %></li>
+          <li><b>Close: </b><%= @ticket.close_date %></li>
+        </ul>
+      <div class="form-row">
+      <div class="form-group">
+        <a class="btn btn-primary btn-sm" href="/all_tickets" role="button">Back to Tickets</a>
+        <a class="btn btn-outline-success btn-sm <%= "disabled" unless @ticket.status == 'Abierto' %>" href="/edit_ticket/<%=@ticket.id%>">Edit Ticket</a>
+        <a class="btn btn-outline-warning btn-sm <%= "disabled" unless @ticket.status == 'Abierto' %>" href="/close_ticket/<%=@ticket.id%>">Close ticket</a>
+        <a class="btn btn-outline-danger btn-sm <%= "disabled" unless @ticket.status == 'Abierto' %>" href="/cancel_ticket/<%=@ticket.id%>">Cancel ticket</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

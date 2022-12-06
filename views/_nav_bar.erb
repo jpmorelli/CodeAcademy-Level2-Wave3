@@ -1,0 +1,47 @@
+<div class="header clearfix">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+    <ul class="nav nav-pills mx-auto">
+      <a class="navbar-brand" href="/">Atencion Ciudadana</a>
+      <li class="nav-item">
+      <% if @home_selected_in_nav %>
+        <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      <% else %>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      <% end %>
+      </li>
+
+      <li class="nav-item">
+        <% if @tickets_list_selected_in_nav %>
+          <a class="nav-link active" href="/all_tickets" role="button">Tickets</a>
+        <% else %>
+          <a class="nav-link" href="/all_tickets" role="button">Tickets</a>
+        <% end %>
+      </li>
+      
+      <li class="nav-item">
+        <% if @categories_list_selected_in_nav %>
+          <a class="nav-link active" href="/all_categories" role="button">Categories</a>
+        <% else %>
+          <a class="nav-link" href="/all_categories" role="button">Categories</a>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <% if @information_selected_in_nav %>
+          <a class="nav-link active" href="/information" role="button">Information</a>
+        <% else %>
+          <a class="nav-link" href="/information" role="button">Information</a>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <% if @statistics_selected_in_nav %>
+          <a class="nav-link active" href="/statistics" role="button">Statistics</a>
+        <% else %>
+          <a class="nav-link" href="/statistics" role="button">Statistics</a>
+        <% end %>
+      </li>
+      
+    </ul>
+  </nav>
+</div> 

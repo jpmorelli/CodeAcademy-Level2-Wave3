@@ -1,0 +1,40 @@
+<div>
+  <a class="btn btn-info btn-lg btn-block" href="/add_ticket" role="button">Add New Ticket</a>
+</div>
+<div class="card">
+  <h4 class="card-header">All Tickets</h4>
+  <div class="card-body">
+    <% if @tickets.empty? %>
+      <p>There are no tickets</p>
+    <% else %>
+      <div>
+        <table class="table table-sm">
+          <thead class="thead-light">
+            <th>ID</th>
+            <th>Category</th>
+            <th>Open Date</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+            <th>Actions</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @tickets.each do |ticket| %>
+              <tr>
+                <td><%= ticket.id %></td>
+                <td><%= ticket.category %></td>
+                <td><%= ticket.open_date %></td>
+                <td><%= ticket.status %></td>
+                <td><a class="btn btn-outline-primary btn-sm" href="/ticket/<%=ticket.id%>">Details</a></td>
+                <td><a class="btn btn-outline-success btn-sm <%= "invisible" unless ticket.status == 'Abierto' %>" href="/edit_ticket/<%=ticket.id%>">Edit</a></td>
+                <td><a class="btn btn-outline-warning btn-sm <%= "invisible" unless ticket.status == 'Abierto' %>" href="/close_ticket/<%=ticket.id%>">Close</a></td>
+                <td><a class="btn btn-outline-danger btn-sm <%= "invisible" unless ticket.status == 'Abierto' %>" href="/cancel_ticket/<%=ticket.id%>">Cancel</a></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

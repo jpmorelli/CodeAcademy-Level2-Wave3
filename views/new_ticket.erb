@@ -1,0 +1,29 @@
+<div class="card">
+  <h4 class="card-header">ID<%= @ticket.id %> - Ticket details</h4>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col-6">
+        <ul>
+          <li><b>Category: </b><%= @ticket.category %></li>
+          <li><b>Type of request: </b><%= @ticket.type_of_ticket %></li>
+          <li><b>Date: </b><%= @ticket.open_date %></li>
+          <li><%= @ticket.commune %></li>
+          <li><b>Neighbordhood: </b><%= @ticket.neighbordhood %></li>
+          <li><b>Street: </b><%= @ticket.street%></li>
+          <li><b>Number: </b><%= @ticket.number %></li>
+          <li><b>Source Channel: </b><%= @ticket.source_channel %></li>
+          <li><b>Gender: </b><%= @ticket.gender %></li>
+          <li><b>Status: </b><%= @ticket.status %></li>
+          <li><b>Close: </b><%= @ticket.close_date %></li>
+        </ul>
+
+        <h2><p class="text-success">Ticket created successfully !</p></h2>
+        <div class="form-row">
+          <div class="form-group col-auto">
+            <a class="btn btn-primary" href="/all_tickets" role="button">Back to Tickets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

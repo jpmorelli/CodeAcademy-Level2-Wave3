@@ -1,0 +1,33 @@
+<div>
+  <a class="btn btn-info btn-lg btn-block" href="/add_category" role="button">Add New Category</a>
+</div>
+<div class="card">
+  <h4 class="card-header">List Categories</h4>
+  <div class="card-body">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <div class="alert alert-danger" role="alert">
+            <%= error%>
+          </div>
+        <% end %>
+      <% end %>
+      <% if @categories.empty? %>
+        <p>There are no categories</p>
+      <% else %>
+      <div>
+        <table class="table table-sm">
+          <thead class="thead-light">
+            <th>Categories</th>
+          </thead>
+          <tbody>
+            <% @categories.each do |category| %>
+            <tr>
+              <td><li><%= category %></li></td>
+            </tr>
+            <% end %>
+          </tbody>
+          </table>
+        <% end %>
+      </div>
+  </div>
+</div>

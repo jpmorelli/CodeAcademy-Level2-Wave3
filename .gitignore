@@ -1,0 +1,5 @@
+*.log
+.byebug_history
+*/.DS_Store
+*.yml
+*.yaml

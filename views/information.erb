@@ -1,0 +1,55 @@
+
+<h3> Informaci&oacute;n respecto a los tickets cargados en el sistema</h3> 
+<ul>
+  <li>Comuna donde se abrieron m&aacute;s tickets: <b><%= @commune %></b></li>
+
+  <li>D&iacute;a en el que se abrieron m&aacute;s tickets: <b><%= @date %></b></li>
+
+  <li>Mes en el que se cerraron m&aacute;s tickets: <b><%= @month %></b></li>
+  
+  <li>Comuna con la solicitud abierta mas vieja: <b><%= @result_aged_ticket %></b></li>
+
+  <li>Cantidad de solicitudes que llevan abiertas más de 1 semana: <b><%= @mtw %></b></li>
+
+  <li>La categor&iacute;a que mas utiliz&oacute; el genero Otro: <b><%= @cat_by_gender_other %></b></li>
+
+  <li>La categor&iacute;a que mas utiliz&oacute; el genero femenino: <b><%= @cat_by_gender_female %></b></li>
+
+  <li>La categor&iacute;a que mas utiliz&oacute; el genero masculino: <b><%= @cat_by_gender_male %></b></li>
+</ul>
+<form method="post" action="/information">
+  <div class="form-row">
+    <div class="form_group col-md-8">
+    <h6><p class="p-2 mb-2 bg-primary text-white"><%= @no_info %></p></h6>
+    </div>    
+    <div class="form-group col-md-1"> 
+      <input type="number" class="form-control-sm" name="inputMonth" min="1" max="12"/>
+    </div>
+    <div class="form-group col-md-1">   
+      <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+  <div>
+    <table class="table table-sm col-md-10">
+      <thead class="thead-light">
+        <th>ID</th>
+        <th>Category</th>
+        <th>Open Date</th>
+        <th>Close Date</th>
+        <th>Commune</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @query.each do |ticket| %>
+          <tr>
+            <td><%= ticket.id %></td>
+            <td><%= ticket.category %></td>
+            <td><%= ticket.open_date %></td>
+            <td><%= ticket.close_date %></td>
+            <td><%= ticket.commune %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
